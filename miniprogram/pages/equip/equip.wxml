@@ -1,0 +1,102 @@
+<!-- <view class="tarbar" hover-class="none" hover-stop-propagation="false">
+  <button>今日事纪</button>
+  <button>步云新闻</button>
+</view> -->
+<!-- 职业选择 -->
+<view class="pow" hover-class="none" hover-stop-propagation="false">
+  <picker
+    mode="multiSelector"
+    bindchange="bindPowPickerChange"
+    bindcolumnchange="bindPowPickerColumnChange"
+    value="{{ powIndex }}"
+    range="{{ pows }}">
+      <text id="small-title">当前选择：</text>
+      <text>{{ pows[0][powIndex[0]] }}</text>
+      <text>{{ pows[1][powIndex[1]] }}</text>
+  </picker>
+  <button bindtap="routeToProperty">详情</button>
+</view>
+<!-- 装备选择 -->
+<view class="hr" hover-class="none" hover-stop-propagation="false">
+</view>
+<view wx:for="{{ equipments }}" wx:key="index" wx:for-index="index" wx:for-item="equip">
+  <view class="equip" hover-class="none" hover-stop-propagation="false">
+    <text id="small-title">{{ equip.title }}:</text>
+    <picker
+      mode="multiSelector"
+      bindchange="bindItemPickerChange"
+      bindcolumnchange="bindItemPickerColumnChange"
+      data-index="{{ index }}"
+      value="{{ equip.itemIndex }}"
+      range="{{ equip.items }}"
+      class="weapon">
+      <text>{{ equip.item }}</text>
+    </picker>
+    <text bindtap="toggleHiddenDetail" data-index="{{ index }}" wx:if="{{ equip.hiddenDetail }}">></text>
+    <text bindtap="toggleHiddenDetail" data-index="{{ index }}" wx:else="{{ !equip.hiddenDetail }}" id="ffalse">></text>
+  </view>
+  <view class="equip-item" hover-class="none" hover-stop-propagation="false" hidden="{{ equip.hiddenDetail }}">
+    <view class="equit-item-item" hover-class="none" hover-stop-propagation="false">
+      <!-- 强化等级 -->
+      <picker
+        bindchange="bindIntensifyChange"
+        value="{{ equip.intensifyVal }}"
+        range="{{ intensify }}"
+        wx:if="{{ equip.haveIntensify }}"
+        data-index="{{ index }}"
+        id="equip-item-val">
+        <text>强化等级：</text>
+        <text>{{ intensify[equip.intensifyVal] }}</text>
+      </picker>
+      <!-- 符咒 -->
+      <picker
+        mode="multiSelector"
+        bindchange="bindCharmPickerChange"
+        bindcolumnchange="bindCharmPickerColumnChange"
+        data-index="{{ index }}"
+        value="{{ equip.charm }}"
+        range="{{ equip.charmRange }}"
+        wx:if="{{ equip.haveCharm }}"
+        id="equip-item-val">
+        <text>符咒选择：</text>
+        <text>{{ equip.charm }}</text>
+      </picker>
+      <!-- 宝石一 -->
+      <picker
+        mode="multiSelector"
+        bindchange="bindGemPickerChange1"
+        bindcolumnchange="bindGemPickerColumnChange1"
+        data-index="{{ index }}"
+        data-type="{{ equip.type }}"
+        value="{{ equip.gem1 }}"
+        range="{{ equip.gemRange1 }}"
+        wx:if="{{ equip.haveGem1 }}"
+        id="equip-item-val">
+        <text>宝石1选择：</text>
+        <text>{{ equip.gem1 }}</text>
+      </picker>
+      <!-- 宝石二 -->
+      <picker
+        mode="multiSelector"
+        bindchange="bindGemPickerChange2"
+        bindcolumnchange="bindGemPickerColumnChange2"
+        data-index="{{ index }}"
+        data-type="{{ equip.type }}"
+        value="{{ equip.gem2 }}"
+        range="{{ equip.gemRange2 }}"
+        wx:if="{{ equip.haveGem2 }}"
+        id="equip-item-val">
+        <text>宝石2选择：</text>
+        <text>{{ equip.gem2 }}</text>
+      </picker>
+      <!-- 装等 -->
+      <picker
+        value="{{ equip.quality }}"
+        disabled
+        id="equip-item-val">
+        <text>装备等级：</text>
+        <text>{{ equip.quality }}</text>
+      </picker>
+    </view>
+  </view>
+</view>

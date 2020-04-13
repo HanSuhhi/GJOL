@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/equip/equip",
+    "pages/property/property"
+  ],
+  "window": {
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextdStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "古剑奇谭OL 云上仙居",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

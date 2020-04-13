@@ -1,0 +1,14 @@
+<view>【体】：{{ physique }}</view>
+<view>【额外生命】： {{ health }}</view>
+<view>【主属性】： {{ primaryAttribute }}</view>
+<view>【运】： {{ luck }}</view>
+<view>---</view>
+<view>【攻击】： {{ ACK }}</view>
+<view>【强度】： {{ intension }}</view>
+<view>【会心】： {{ thump }}</view>
+<view>【治疗效果】： {{ cure }}</view>
+<view>【生命】：{{ hp }}</view>
+<view>【仇恨】：{{ OMEN }}</view>
+<view>【攻击专注】： {{ focus }}</view>
+<view>【识破】： {{ penetrate }}</view>
+<view>【急速】： {{ speed }}</view>
